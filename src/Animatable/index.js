@@ -48,6 +48,14 @@ export default class FLAnimatable extends Component {
           onValueChange={this.updateAnimation}>
           <Picker.Item label="Jello" value="jello" />
           <Picker.Item label="Pulse" value="pulse" />
+          <Picker.Item label="Shake" value="shake" />
+          <Picker.Item label="Swing" value="swing" />
+          <Picker.Item label="Tada" value="tada" />
+          <Picker.Item label="BounceInLeft" value="bounceInLeft" />
+          <Picker.Item label="FlipInX" value="flipInX" />
+          <Picker.Item label="LightSpeedIn" value="lightSpeedIn" />
+          <Picker.Item label="SlideInRight" value="slideInRight" />
+          <Picker.Item label="ZoomInUp" value="zoomInUp" />
         </Picker>
         <ConfigurableSlider
           onChange={this.updateAnimationDuration}

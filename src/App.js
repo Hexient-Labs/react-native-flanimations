@@ -10,13 +10,14 @@ import {
 } from 'react-native'
 
 import AnimatableModal from './Animatable'
+import LayoutAnimationModal from './LayoutAnimation'
 
 const OPTIONS = [
-  { title: 'ANIMATABLE', color: '#DC2E48' },
-  { title: 'LAYOUT ANIMATION', color: '#DC7640' },
-  { title: 'ANIMATED', color: '#DCC337' },
-  { title: 'INTERACTABLE', color: '#44DC38' },
-  { title: 'SHOUTEM ANIMATION', color: '#325FDC' },
+  { title: 'ANIMATABLE', color: '#6b40d8' },
+  { title: 'LAYOUT ANIMATION', color: '#7d4ae3' },
+  { title: 'ANIMATED', color: '#964af9' },
+  { title: 'ANIMATED (BONUS)', color: '#ab67d2' },
+  { title: 'INTERACTABLE', color: '#da4dff' },
 ]
 
 @observer(['animationModalStore'])
@@ -67,6 +68,12 @@ export default class Flanimations extends Component {
         <AnimatableModal
           visible={
             animationModalStore.animationLibrary === OPTIONS[0].title
+          }
+          toggleModal={this.toggleModal}
+        />
+        <LayoutAnimationModal
+          visible={
+            animationModalStore.animationLibrary === OPTIONS[1].title
           }
           toggleModal={this.toggleModal}
         />
