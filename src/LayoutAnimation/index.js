@@ -8,7 +8,6 @@ import {
   Modal,
   Picker,
   SegmentedControlIOS,
-  View,
 } from 'react-native'
 
 import constants from '../constants'

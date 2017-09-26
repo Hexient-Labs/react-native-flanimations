@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 
 import AnimatableModal from './Animatable'
+import AnimatedModal from './Animated'
 import LayoutAnimationModal from './LayoutAnimation'
 
 const OPTIONS = [
@@ -74,6 +75,12 @@ export default class Flanimations extends Component {
         <LayoutAnimationModal
           visible={
             animationModalStore.animationLibrary === OPTIONS[1].title
+          }
+          toggleModal={this.toggleModal}
+        />
+        <AnimatedModal
+          visible={
+            animationModalStore.animationLibrary === OPTIONS[2].title
           }
           toggleModal={this.toggleModal}
         />
