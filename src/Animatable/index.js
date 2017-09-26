@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { observer } from 'mobx-react/native'
+import { inject, observer } from 'mobx-react/native'
 import * as Animatable from 'react-native-animatable'
 import { Modal, Picker } from 'react-native'
 import constants from '../constants'
@@ -8,7 +8,8 @@ import CloseButton from '../components/CloseButton'
 import ConfigurableSlider from './components/ConfigurableSlider'
 
 
-@observer(['animatableStore'])
+@inject('animatableStore')
+@observer
 export default class FLAnimatable extends Component {
   constructor(props) {
     super(props)
@@ -25,7 +26,11 @@ export default class FLAnimatable extends Component {
   }
 
   render() {
-    const { animatableStore, toggleModal, visible } = this.props
+    const {
+      animatableStore,
+      toggleModal,
+      visible,
+    } = this.props
 
     return (
       <Modal

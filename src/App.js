@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react/native'
+
 import {
   StatusBar,
   StyleSheet,
@@ -7,6 +8,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
+
 import AnimatableModal from './Animatable'
 
 const OPTIONS = [

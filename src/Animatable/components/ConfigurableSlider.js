@@ -1,6 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Dimensions, Slider, Text, View } from 'react-native'
+
+import {
+  Dimensions,
+  Slider,
+  Text,
+  View,
+} from 'react-native'
 
 const ConfigurableSlider = ({ onChange, title, value }) => (
   <View
