@@ -1,21 +1,31 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { observer } from 'mobx-react/native'
 import * as Animatable from 'react-native-animatable'
-import { Modal, Text, TouchableOpacity } from 'react-native'
+import { Modal, Picker } from 'react-native'
+import constants from '../constants'
+import CloseButton from '../components/CloseButton'
+import ConfigurableSlider from './components/ConfigurableSlider'
 
+
+@observer(['animatableStore'])
 export default class FLAnimatable extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      animation: 'jello',
-      duration: 1000,
-      delay: 1000,
-    }
+    this.updateAnimation = name =>
+      this.props.animatableStore.setAnimationName(name)
+
+    this.updateAnimationDuration = dur =>
+      this.props.animatableStore.setAnimationDuration(dur)
+  }
+
+  componentDidUpdate() {
+    this.aref && this.aref.startAnimation()
   }
 
   render() {
-    const { visible } = this.props
+    const { animatableStore, toggleModal, visible } = this.props
 
     return (
       <Modal
@@ -27,34 +37,30 @@ export default class FLAnimatable extends Component {
           justifyContent: 'center',
         }}
       >
-        <TouchableOpacity
-          onPress={this.props.toggleModal}
-          style={{
-            flex: 1,
-            width: '100%',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-          }}
-        >
-          <Text
-            style={{
-              marginLeft: 16,
-            }}
-          >
-            Close
-          </Text>
-        </TouchableOpacity>
+        <CloseButton onPress={toggleModal} />
+        <Picker
+          selectedValue={animatableStore.animationName}
+          onValueChange={this.updateAnimation}>
+          <Picker.Item label="Jello" value="jello" />
+          <Picker.Item label="Pulse" value="pulse" />
+        </Picker>
+        <ConfigurableSlider
+          onChange={this.updateAnimationDuration}
+          title="Duration"
+          value={animatableStore.animationDuration}
+        />
         <Animatable.Image
-          animation={this.state.animation}
-          duration={this.state.duration}
-          delay={this.state.delay}
-          source={{ uri: 'https://res.cloudinary.com/talkrise/image/upload/v1505704198/Flanimations_Icon_jm9imu.png' }}
+          ref={ci => { this.aref = ci }}
+          animation={animatableStore.animationName}
+          duration={animatableStore.animationDuration}
+          iterationCount="infinite"
+          source={{ uri: constants.LOGO_URL }}
           style={{
-            flex: 1,
-            width: 144,
+            alignSelf: 'center',
+            flex: 4,
             height: 122,
             resizeMode: 'contain',
-            alignSelf: 'center',
+            width: 144,
           }}
         />
       </Modal>
