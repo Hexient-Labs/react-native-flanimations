@@ -11,6 +11,7 @@ import {
 
 import AnimatableModal from './Animatable'
 import AnimatedModal from './Animated'
+import InteractableModal from './Interactable'
 import LayoutAnimationModal from './LayoutAnimation'
 
 const OPTIONS = [
@@ -82,6 +83,13 @@ export default class Flanimations extends Component {
             animationModalStore.animationLibrary === OPTIONS[2].title
           }
           toggleModal={this.toggleModal}
+        />
+        <InteractableModal
+          toggleModal={this.toggleModal}
+          visible={
+            animationModalStore.animationLibrary === OPTIONS[3].title
+
+          }
         />
       </View>
     )
