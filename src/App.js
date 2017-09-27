@@ -17,7 +17,6 @@ const OPTIONS = [
   { title: 'ANIMATABLE', color: '#6b40d8' },
   { title: 'LAYOUT ANIMATION', color: '#7d4ae3' },
   { title: 'ANIMATED', color: '#964af9' },
-  { title: 'ANIMATED (BONUS)', color: '#ab67d2' },
   { title: 'INTERACTABLE', color: '#da4dff' },
 ]
 

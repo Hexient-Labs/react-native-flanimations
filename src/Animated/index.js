@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import {
   Animated,
   Modal,
-  Text,
-  TouchableOpacity,
   View,
 } from 'react-native'
 
